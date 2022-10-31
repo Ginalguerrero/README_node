@@ -1,57 +1,95 @@
 // TODO: Include packages needed for this application
-
-const { default: inquirer } = require("inquirer");
-
+import inquirer from "inquirer";
+import fs from "fs";
 // TODO: Create an array of questions for user input
-
+function generateQuestions(pairs) {
+  
+}
 const questions = [ { 
-    name: "title", 
+    name: "Title", 
     type: "input", 
-    message: "What's the project title?", },
-    {
-    name: "section.description", 
+    message: "What's the project title?",
+},
+{
+    name: "description", 
     type: "input", 
     message: "What's the project description?", 
 },
 {
-    name: "section.installation",
+    name: "installation",
     type: "input",
     message: "Whats the project installation instructions?",
 },
 { 
-    name: "content.contributing",
+    name: "contributing",
     type: "input",
     message: "Whats the project contributing guidelines?",
 },
 {
-    name: "content.tests",
+    name: "tests",
     type: "input",
     message: "What's the project tests instructions?",
 },
 {
-    name: "content.usage",
+    name: "usage",
     type: "input",
     message: "Whats the project usage information?",
 }
 ];
 
-inquirer.prompt(questions).then((answer)
-=>console.log(answer);
-    let lines = [`# ${answer.Title}\n`];
-    const links = '';
-    const section = '';
-    for (const section in answer.section) {
-
-    if (answer.section[section] !== '')
-{
-    
-  
-console.log (lines);
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then((answer) => {
+      const readme = `
+  # ${answer.Title}
+  
+  ## Description
+  ${answer.description}
 
-// Function call to initialize app
-init();
+  ## Table of Contents
+  -[Description](#description)
+  -[Installation](#installation)
+
+  ## Instalattion
+  \`\`\`
+  ${answer.installation}
+  \`\`\`
+  ## Usage 
+  ${answer.usage}
+  
+  ## License
+  ${answer.license}
+  
+  ## Contributing
+  ${answer.contributing}
+  
+  
+  `
+      let lines = `\n\n`;
+  
+      let links = '## Table of Contents\n\n';
+      let sections = '';
+      for (const section in answer.section) {
+        if (answer.section[section] !== '') {
+          links += `- [${section}](#${section.toLowerCase()})\n`;
+          sections += `## ${section}\n`;
+          sections += `${answer.section[section]}\n\n`;
+        }
+      }
+  
+      lines += links + '\n' + sections;
+  
+      writeToFile('README.md', lines);
+    }
+  
+                                      }
+  function writeToFile(fileName, data) {
+    try {
+      fs.writeFileSync(fileName, data);
+  
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  // Function call to initialize app
+  init();
