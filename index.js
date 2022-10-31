@@ -3,8 +3,7 @@
 const { default: inquirer } = require("inquirer");
 
 // TODO: Create an array of questions for user input
-const sections = ['description', 'installation','usage', 'contributing',
-'tests', 'questions'];
+
 const questions = [ { 
     name: "title", 
     type: "input", 
