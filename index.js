@@ -1,12 +1,12 @@
 // TODO: Include packages needed for this application
-import inquirer from "inquirer";
-import fs from "fs";
+const inquirer = require ("inquirer");
+const fs = require ("fs");
 // TODO: Create an array of questions for user input
 function generateQuestions(pairs) {
   
 }
 const questions = [ { 
-    name: "Title", 
+    name: "title", 
     type: "input", 
     message: "What's the project title?",
 },
@@ -34,26 +34,48 @@ const questions = [ {
     name: "usage",
     type: "input",
     message: "Whats the project usage information?",
-}
+},
+{
+        name: "license",
+        type: "list",
+        message: "What's the project license?",
+        choices: ['None', 'MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3'],
+        default: "None"
+      },
+        {
+        name: "questions.github",
+        type: "input",
+        message: "What's your GitHub?",
+      },
+        {
+        name: "questions.email",
+        type: "input",
+        message: "What's your email?",
+      }
 ];
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((answer) => {
       const readme = `
-  # ${answer.Title}
+  # ${answer.title}
   
+  [![License](https://img.shields.io/badge/license-${answer.license}-green)](./LICENSE)
   ## Description
   ${answer.description}
-
+  
   ## Table of Contents
-  -[Description](#description)
-  -[Installation](#installation)
-
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - []
   ## Instalattion
   \`\`\`
   ${answer.installation}
   \`\`\`
+  
   ## Usage 
   ${answer.usage}
   
@@ -63,26 +85,19 @@ function init() {
   ## Contributing
   ${answer.contributing}
   
+  ## Tests
+  \`\`\`
+  ${answer.tests}
+  \`\`\`
   
+  ## Questions
+  - [GitHub](https://www.github.com/${answer.questions.github})
+  - [Email](${answer.questions.email})
   `
-      let lines = `\n\n`;
+      writeToFile('README.md', readme);
+     });
+  }
   
-      let links = '## Table of Contents\n\n';
-      let sections = '';
-      for (const section in answer.section) {
-        if (answer.section[section] !== '') {
-          links += `- [${section}](#${section.toLowerCase()})\n`;
-          sections += `## ${section}\n`;
-          sections += `${answer.section[section]}\n\n`;
-        }
-      }
-  
-      lines += links + '\n' + sections;
-  
-      writeToFile('README.md', lines);
-    }
-  
-                                      }
   function writeToFile(fileName, data) {
     try {
       fs.writeFileSync(fileName, data);
@@ -93,3 +108,4 @@ function init() {
   }
   // Function call to initialize app
   init();
+  
