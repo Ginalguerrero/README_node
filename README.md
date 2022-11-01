@@ -1,9 +1,8 @@
 
-  # 
+  # README_node
   
-  [![License](https://img.shields.io/badge/license-None-green)](./LICENSE)
   ## Description
-  
+  to generate a good readmefile using node
   
   ## Table of Contents
   - [Description](#description)
@@ -11,27 +10,31 @@
   - [Usage](#usage)
   - [License](#license)
   - [Contributing](#contributing)
-  - []
-  ## Instalattion
-  ```
   
+  ## Installation
+  ``` 
+  node
   ```
   
   ## Usage 
   
+  `` 
   
+
   ## License
-  None
+  MIT
+
+  [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
   
   ## Contributing
   
   
   ## Tests
   ```
-  
+  npm 
   ```
   
   ## Questions
-  - [GitHub](https://www.github.com/)
-  - [Email]()
+  - [GitHub](https://www.github.com/ginalguerrero)
+  - [Email](gina.l.guerrero@gmail.com)
   

@@ -18,7 +18,7 @@ const questions = [ {
 {
     name: "installation",
     type: "input",
-    message: "Whats the project installation instructions?",
+    message: "Whats are the installations for this project?",
 },
 { 
     name: "contributing",
@@ -28,7 +28,7 @@ const questions = [ {
 {
     name: "tests",
     type: "input",
-    message: "What's the project tests instructions?",
+    message: "How did you run the tests?",
 },
 {
     name: "usage",
@@ -36,22 +36,22 @@ const questions = [ {
     message: "Whats the project usage information?",
 },
 {
-        name: "license",
-        type: "list",
-        message: "What's the project license?",
-        choices: ['None', 'MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3'],
-        default: "None"
-      },
-        {
-        name: "questions.github",
-        type: "input",
-        message: "What's your GitHub?",
-      },
-        {
-        name: "questions.email",
-        type: "input",
-        message: "What's your email?",
-      }
+    name: "license",
+    type: "list",
+    message: "What's type of license was used?",
+    choices: ['None', 'MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3'],
+    default: "None"
+},
+{
+    name: "questions.github",
+    type: "input",
+    message: "What's your GitHub?",
+},
+{
+    name: "questions.email",
+    type: "input",
+    message: "What's your email?",
+}
 ];
 
 // TODO: Create a function to initialize app
@@ -60,7 +60,6 @@ function init() {
       const readme = `
   # ${answer.title}
   
-  [![License](https://img.shields.io/badge/license-${answer.license}-green)](./LICENSE)
   ## Description
   ${answer.description}
   
@@ -70,17 +69,22 @@ function init() {
   - [Usage](#usage)
   - [License](#license)
   - [Contributing](#contributing)
-  - []
-  ## Instalattion
-  \`\`\`
+  
+  ## Installation
+  \`\`\` 
   ${answer.installation}
   \`\`\`
   
   ## Usage 
   ${answer.usage}
+  \`\`\
+ 
   
+
   ## License
   ${answer.license}
+
+  [![License](https://img.shields.io/badge/license-${answer.license}-green)](./LICENSE)
   
   ## Contributing
   ${answer.contributing}
