@@ -17,8 +17,7 @@
   ```
   
   ## Usage 
-  
-  `` 
+ ``
   
 
   ## License
@@ -27,7 +26,8 @@
   [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
   
   ## Contributing
-  
+  demo video
+  https://drive.google.com/file/d/1deK50WJuEwOizdHxvhZSfdIidUK1Z-Ps/view?usp=sharing
   
   ## Tests
   ```
@@ -35,12 +35,8 @@
   ```
   
   ## Questions
-<<<<<<< HEAD:README.md
+
   - [GitHub](https://www.github.com/ginalguerrero)
   - [Email](gina.l.guerrero@gmail.com)
   
-=======
-  - [GitHub](https://www.github.com/)
-  - [Email]()
   
->>>>>>> 8f413870e336c33e11a74bdb856ab1ea88e030c8:README.md (generate)
